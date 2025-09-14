@@ -1,15 +1,12 @@
 package com.sneha.atmMachine;
 
-import atmMachine.database.AccountDataBase;
-import atmMachine.database.CardDataBase;
-import list.stack.Stack;
-
-import java.util.Objects;
+import com.sneha.atmMachine.database.AccountDataBase;
+import com.sneha.atmMachine.database.CardDataBase;
 
 public class Bank {
-    private CardDataBase cardDataBase;
-    private AccountDataBase accountDataBase;
-    private IdGenerator idGenerator;
+    private final CardDataBase cardDataBase;
+    private final AccountDataBase accountDataBase;
+    private final IdGenerator idGenerator;
 
     private final int maxWithdrawalLimit = 10000;
     private final int minWithdrawalLimit = 0;

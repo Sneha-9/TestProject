@@ -1,6 +1,6 @@
 package com.sneha.map;
 
-public interface Map<K,V> {
+public interface Map<K, V> {
 
     boolean put(K key, V value);
 

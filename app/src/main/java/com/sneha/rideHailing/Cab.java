@@ -1,13 +1,13 @@
 package com.sneha.rideHailing;
 
 public class Cab {
-    private String type;
-    private String number;
+    private final String type;
+    private final String number;
     private float baseFare;
 
-    Cab(String number, String type){
-        this.number=number;
-        this.type=type;
+    Cab(String number, String type) {
+        this.number = number;
+        this.type = type;
     }
 
     public String getNumber() {

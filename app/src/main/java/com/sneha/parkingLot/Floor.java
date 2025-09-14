@@ -1,29 +1,25 @@
 package com.sneha.parkingLot;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
-
 public class Floor {
 
-    private String idGenerator;
-    private  Lot[] lots ;
+    private final String idGenerator;
+    private final Lot[] lots;
 
 
     Floor(IdGenerator idGenerator, Lot... lots) throws IllegalArgumentException {
-        if(idGenerator == null){
-            throw  new IllegalArgumentException("Id cannot be null");
+        if (idGenerator == null) {
+            throw new IllegalArgumentException("Id cannot be null");
         }
 
-        if(lots.length==0){
+        if (lots.length == 0) {
             throw new IllegalArgumentException("Lot size cannot be zero");
         }
 
-        this.idGenerator=idGenerator.generate();
+        this.idGenerator = idGenerator.generate();
 
 //        lots.add(new Lot(idGenerator,vehicleType));
 //        lots.add(new Lot(idGenerator,vehicleType));
-        this.lots=lots;
+        this.lots = lots;
 
     }
 

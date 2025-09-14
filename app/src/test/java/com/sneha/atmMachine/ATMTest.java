@@ -1,7 +1,7 @@
 package com.sneha.atmMachine;
 
 
-import atmMachine.database.CardDataBase;
+import com.sneha.atmMachine.database.CardDataBase;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -12,15 +12,15 @@ class ATMTest {
     IdGenerator idGenerator = mock(IdGenerator.class);
 
     @AfterEach
-    void mockReset(){
+    void mockReset() {
         reset(idGenerator);
     }
 
     @Test
-    void shouldWithdrawAmount(){
+    void shouldWithdrawAmount() {
 
-        CardDataBase cardDatabase= mock(CardDataBase.class);
-        Card card=mock(Card.class);
+        CardDataBase cardDatabase = mock(CardDataBase.class);
+        Card card = mock(Card.class);
 
 
         when(card.getId()).thenReturn("123");
@@ -30,24 +30,24 @@ class ATMTest {
         Bank bank = mock(Bank.class);
 
         when(bank.validateAccount(card)).thenReturn(true);
-        BankAccount bankAccount= mock(BankAccount.class);
+        BankAccount bankAccount = mock(BankAccount.class);
 
         when(cardDatabase.validateCard(card)).thenReturn(card);
         when(bank.getAccountDetails("123456")).thenReturn(bankAccount);
 
         when(bankAccount.getAmount()).thenReturn(100f);
 
-        ATM atm=new ATM(bank,cardDatabase);
-        Assertions.assertEquals(100f, atm.withdrawMoney(card,100f));
-        verify(bankAccount,times(1)).withrawBalance(100f);
+        ATM atm = new ATM(bank, cardDatabase);
+        Assertions.assertEquals(100f, atm.withdrawMoney(card, 100f));
+        verify(bankAccount, times(1)).withrawBalance(100f);
 
     }
 
 
     @Test
-    void shouldCheckBalance(){
-        CardDataBase cardDatabase= mock(CardDataBase.class);
-        Card card=mock(Card.class);
+    void shouldCheckBalance() {
+        CardDataBase cardDatabase = mock(CardDataBase.class);
+        Card card = mock(Card.class);
 
         Bank bank = mock(Bank.class);
         when(card.getId()).thenReturn("123");
@@ -57,12 +57,12 @@ class ATMTest {
         when(bank.validateAccount(card)).thenReturn(true);
         when(cardDatabase.validateCard(card)).thenReturn(card);
 
-        BankAccount bankAccount= mock(BankAccount.class);
+        BankAccount bankAccount = mock(BankAccount.class);
         when(bank.getAccountDetails("123456")).thenReturn(bankAccount);
         when(bankAccount.getAmount()).thenReturn(100f);
-        ATM atm=new ATM(bank,cardDatabase);
+        ATM atm = new ATM(bank, cardDatabase);
 
-        Assertions.assertEquals(100f,atm.checkBalance(card));
-        verify(bankAccount,times(1)).getAmount();
+        Assertions.assertEquals(100f, atm.checkBalance(card));
+        verify(bankAccount, times(1)).getAmount();
     }
 }

@@ -29,17 +29,17 @@ public class Runner {
 
         System.out.println(updateTaskResponse);
 
-        GetTaskResponse getTaskResponse = toDoList.getTask(new GetTaskRequest.Builder().withId(createdTaskId).build());
-
-        System.out.println(getTaskResponse);
-
-
-        List<GetTaskResponse> completedTasks = toDoList.getTasks(new GetTasksRequest(Constants.COMPLETED));
-        List<GetTaskResponse> pendingTasks = toDoList.getTasks(new GetTasksRequest(Constants.PENDING));
-
-        System.out.println(completedTasks);
-        System.out.println(pendingTasks);
-
+//        GetTaskResponse getTaskResponse = toDoList.getTask(new GetTaskRequest.Builder().withId(createdTaskId).build());
+//
+//        System.out.println(getTaskResponse);
+//
+//
+//        List<GetTaskResponse> completedTasks = toDoList.getTasks(new GetTasksRequest(Constants.COMPLETED));
+//        List<GetTaskResponse> pendingTasks = toDoList.getTasks(new GetTasksRequest(Constants.PENDING));
+//
+//        System.out.println(completedTasks);
+//        System.out.println(pendingTasks);
+//
 
     }
 

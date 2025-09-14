@@ -1,11 +1,10 @@
 package com.sneha.libraryManagementSystem;
 
-import libraryManagementSystem.database.EntryDatabase;
+import com.sneha.libraryManagementSystem.database.EntryDatabase;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 class BillGenerationSystemTest {
@@ -14,26 +13,26 @@ class BillGenerationSystemTest {
     TimeUtil timeUtil = mock(TimeUtil.class);
 
     @AfterEach
-    void resetMock(){
+    void resetMock() {
         reset(idGenerator, timeUtil);
     }
 
     @Test
-    void shouldCreateBill(){
+    void shouldCreateBill() {
         when(idGenerator.generateId()).thenReturn("random");
         when(timeUtil.getCurrentTime()).thenReturn(20L);
 
-        Book mockBook=mock(Book.class);
+        Book mockBook = mock(Book.class);
         when(mockBook.getName()).thenReturn("ABC");
         when(mockBook.getId()).thenReturn("123");
 
-        Entry entry=mock(Entry.class);
+        Entry entry = mock(Entry.class);
 
         EntryDatabase entryDatabase = mock(EntryDatabase.class);
         when(entryDatabase.getEntry(mockBook)).thenReturn(entry);
 
 
-        Assertions.assertNotNull(new BillGenerationSystem(idGenerator,timeUtil).generateBill(mockBook,entryDatabase));
+        Assertions.assertNotNull(new BillGenerationSystem(idGenerator, timeUtil).generateBill(mockBook, entryDatabase));
 
 
     }

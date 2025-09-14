@@ -1,6 +1,6 @@
 package com.sneha.libraryManagementSystem;
 
-import libraryManagementSystem.database.CardDatabase;
+import com.sneha.libraryManagementSystem.database.CardDatabase;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -11,37 +11,37 @@ import java.util.List;
 import static org.mockito.Mockito.*;
 
 class CardDatabaseTest {
-    IdGenerator idGenerator=mock(IdGenerator.class);
+    IdGenerator idGenerator = mock(IdGenerator.class);
 
 
     @AfterEach
-    void mockReset(){
+    void mockReset() {
 
         reset(idGenerator);
     }
 
     @Test
-    void shouldAddBook(){
+    void shouldAddBook() {
         when(idGenerator.generateId()).thenReturn("random");
-        Card mockCard =  mock(Card.class);
+        Card mockCard = mock(Card.class);
         List<Card> cards = new ArrayList<>();
         CardDatabase cardDatabase = new CardDatabase(cards);
         cardDatabase.addCards(mockCard);
-        Assertions.assertEquals(1,cards.size());
+        Assertions.assertEquals(1, cards.size());
 
     }
 
     @Test
-    void shouldRemoveBook(){
+    void shouldRemoveBook() {
         when(idGenerator.generateId()).thenReturn("random");
-        Card mockCard =  mock(Card.class);
+        Card mockCard = mock(Card.class);
         List<Card> cards = new ArrayList<>();
         CardDatabase cardDatabase = new CardDatabase(cards);
         cardDatabase.addCards(mockCard);
-       Assertions.assertNotNull(cards.size());
+        Assertions.assertNotNull(cards.size());
 
         cardDatabase.removeCard(mockCard.getId());
-        Assertions.assertEquals(0,cards.size());
+        Assertions.assertEquals(0, cards.size());
     }
 
 

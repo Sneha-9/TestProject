@@ -3,31 +3,33 @@ package com.sneha.parkingLot;
 import java.util.Objects;
 
 public class Terminal {
-    private TimeUtil timeUtil;
-    private IdGenerator idGenerator;
+    private final TimeUtil timeUtil;
+    private final IdGenerator idGenerator;
     BillGenerationSystem billGenerationSystem;
-    private String regex ="^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$";
-    Terminal(IdGenerator idGenerator, TimeUtil timeUtil)throws IllegalArgumentException{
-        if(idGenerator == null ){
-            throw  new IllegalArgumentException("Id cannot be null");
+    private final String regex = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$";
+
+    Terminal(IdGenerator idGenerator, TimeUtil timeUtil) throws IllegalArgumentException {
+        if (idGenerator == null) {
+            throw new IllegalArgumentException("Id cannot be null");
         }
-        if(!idGenerator.generate().matches(regex)){
+        if (!idGenerator.generate().matches(regex)) {
             throw new IllegalArgumentException("Id is not valid");
         }
         this.idGenerator = idGenerator;
-        this.timeUtil =timeUtil;
-        this.billGenerationSystem = new BillGenerationSystem(idGenerator,timeUtil);
+        this.timeUtil = timeUtil;
+        this.billGenerationSystem = new BillGenerationSystem(idGenerator, timeUtil);
     }
-    public String getId(){
+
+    public String getId() {
         return idGenerator.generate();
     }
 
-    Bill generateBill(Ticket ticket)throws IllegalArgumentException {
+    Bill generateBill(Ticket ticket) throws IllegalArgumentException {
         return billGenerationSystem.generateBill(ticket);
     }
 
-    Ticket generateTicket(IdGenerator idGenerator,Vehicle vehicle, Lot lot, Floor floor) {
-        Ticket ticket = new Ticket(idGenerator,timeUtil,vehicle.getVehicleNumber(), lot.getId() , floor.getId());
+    Ticket generateTicket(IdGenerator idGenerator, Vehicle vehicle, Lot lot, Floor floor) {
+        Ticket ticket = new Ticket(idGenerator, timeUtil, vehicle.getVehicleNumber(), lot.getId(), floor.getId());
         return ticket;
     }
 

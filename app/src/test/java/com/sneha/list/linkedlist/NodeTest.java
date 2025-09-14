@@ -2,8 +2,6 @@ package com.sneha.list.linkedlist;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class NodeTest {
 
     @Test
@@ -22,7 +20,7 @@ class NodeTest {
          * 5. a points to the memory block with Y bits reserved
          */
 
-        
+
         Node a = new Node(5); //reserve 32 bits in
 
         reassign(a);
@@ -31,8 +29,7 @@ class NodeTest {
     }
 
 
-
-    private void reassign(Node a){
+    private void reassign(Node a) {
         a = new Node(6);
     }
 

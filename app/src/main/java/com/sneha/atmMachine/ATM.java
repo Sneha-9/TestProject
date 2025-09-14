@@ -3,17 +3,17 @@ package com.sneha.atmMachine;
 import com.sneha.atmMachine.database.CardDataBase;
 
 public class ATM {
-    private Bank bank;
-    private CardDataBase cardDataBase;
+    private final Bank bank;
+    private final CardDataBase cardDataBase;
 
-    ATM(Bank bank, CardDataBase cardDataBase){
-        this.bank=bank;
-        this.cardDataBase=cardDataBase;
+    ATM(Bank bank, CardDataBase cardDataBase) {
+        this.bank = bank;
+        this.cardDataBase = cardDataBase;
     }
 
-    public float withdrawMoney(Card card, float withdrawAmount){
+    public float withdrawMoney(Card card, float withdrawAmount) {
         boolean validateCard = bank.validateAccount(card);
-        if(validateCard != true){
+        if (!validateCard) {
             throw new IllegalArgumentException("Card is not valid");
         }
 
@@ -22,11 +22,11 @@ public class ATM {
 
         float balance = accountDetails.getAmount();
 
-        if(balance < withdrawAmount){
-            throw  new IllegalArgumentException("Withdraw Amount cannot exceed balance");
+        if (balance < withdrawAmount) {
+            throw new IllegalArgumentException("Withdraw Amount cannot exceed balance");
         }
 
-        if(withdrawAmount > 10000){
+        if (withdrawAmount > 10000) {
             throw new IllegalArgumentException("Maximum withdrawal shouldn't exceed 10,1000");
         }
 
@@ -36,9 +36,9 @@ public class ATM {
 
     }
 
-    public float checkBalance(Card card){
+    public float checkBalance(Card card) {
         boolean validateCard = bank.validateAccount(card);
-        if(validateCard != true){
+        if (!validateCard) {
             throw new IllegalArgumentException("Card is not valid");
         }
 

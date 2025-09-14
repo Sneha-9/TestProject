@@ -1,6 +1,5 @@
 package com.sneha.splitwise;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Trip {
@@ -10,14 +9,13 @@ public class Trip {
 
     }
 
-    void addFriendOnTrip(Person person){
+    void addFriendOnTrip(Person person) {
         friends.add(person);
     }
 
-    List<Person> getFriends(){
-        return  friends;
+    List<Person> getFriends() {
+        return friends;
     }
-
 
 
 }

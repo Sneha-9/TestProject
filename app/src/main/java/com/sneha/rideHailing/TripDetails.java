@@ -1,8 +1,9 @@
 package com.sneha.rideHailing;
 
 public class TripDetails {
-    private  String id;
-    TripDetails(IdGenerator idGenerator){
+    private final String id;
+
+    TripDetails(IdGenerator idGenerator) {
         this.id = idGenerator.generate();
     }
 

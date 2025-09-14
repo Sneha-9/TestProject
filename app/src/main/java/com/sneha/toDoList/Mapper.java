@@ -5,10 +5,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Mapper {
-    private IdGenerator idGenerator;
-    private TimeUtil timeUtil;
+    private final IdGenerator idGenerator;
+    private final TimeUtil timeUtil;
 
-    Mapper(IdGenerator idGenerator, TimeUtil timeUtil) {
+    public Mapper(IdGenerator idGenerator, TimeUtil timeUtil) {
         this.idGenerator = idGenerator;
         this.timeUtil = timeUtil;
     }

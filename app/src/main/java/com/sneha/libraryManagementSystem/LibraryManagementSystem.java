@@ -1,36 +1,36 @@
 package com.sneha.libraryManagementSystem;
 
-import libraryManagementSystem.database.BookDatabase;
-import libraryManagementSystem.database.CardDatabase;
-import libraryManagementSystem.database.EntryDatabase;
+import com.sneha.libraryManagementSystem.database.BookDatabase;
+import com.sneha.libraryManagementSystem.database.CardDatabase;
+import com.sneha.libraryManagementSystem.database.EntryDatabase;
 
 public class LibraryManagementSystem {
-    private IdGenerator idGenerator;
-    private TimeUtil timeUtil;
-    private EntryDatabase entryDatabase;
-    private CardDatabase cardDatabase;
-    private BookDatabase bookDatabase;
-    private BillGenerationSystem billGenerationSystem;
-    private PaymentService paymentService;
+    private final IdGenerator idGenerator;
+    private final TimeUtil timeUtil;
+    private final EntryDatabase entryDatabase;
+    private final CardDatabase cardDatabase;
+    private final BookDatabase bookDatabase;
+    private final BillGenerationSystem billGenerationSystem;
+    private final PaymentService paymentService;
 
-    public LibraryManagementSystem(IdGenerator idGenerator,TimeUtil timeUtil,EntryDatabase entryDatabase, CardDatabase cardDatabase,BookDatabase bookDatabase,BillGenerationSystem billGenerationSystem, PaymentService paymentService){
+    public LibraryManagementSystem(IdGenerator idGenerator, TimeUtil timeUtil, EntryDatabase entryDatabase, CardDatabase cardDatabase, BookDatabase bookDatabase, BillGenerationSystem billGenerationSystem, PaymentService paymentService) {
         this.idGenerator = idGenerator;
-        this.timeUtil=timeUtil;
-        this.billGenerationSystem=billGenerationSystem;
-        this.entryDatabase=entryDatabase;
-        this.cardDatabase=cardDatabase;
-        this.paymentService=paymentService;
-        this.bookDatabase=bookDatabase;
+        this.timeUtil = timeUtil;
+        this.billGenerationSystem = billGenerationSystem;
+        this.entryDatabase = entryDatabase;
+        this.cardDatabase = cardDatabase;
+        this.paymentService = paymentService;
+        this.bookDatabase = bookDatabase;
     }
 
     Book issueBook(String name, Card card) throws BookNotFoundException, DuplicateCardEntryException {
         Book book = bookDatabase.getBook(name);
-        if (book== null) {
+        if (book == null) {
             throw new BookNotFoundException();
         }
 
         Card c = cardDatabase.getCard(card.getId());
-        if(c != null && c.getId().equals(card.getId())){
+        if (c != null && c.getId().equals(card.getId())) {
             throw new DuplicateCardEntryException();
         }
 
@@ -42,17 +42,17 @@ public class LibraryManagementSystem {
 
     }
 
-    public Bill payBill(Bill bill){
-      return  paymentService.payBill(bill);
+    public Bill payBill(Bill bill) {
+        return paymentService.payBill(bill);
     }
 
     public Bill generateBill(Book book, EntryDatabase entryDatabase) {
-        Bill bill= billGenerationSystem.generateBill(book,entryDatabase);
+        Bill bill = billGenerationSystem.generateBill(book, entryDatabase);
         return bill;
     }
 
     Card returnBook(Book book, Bill bill) throws BillNotPaidException, EntryNotFoundException, CardNotFoundException {
-        if (bill.isPaid() == false) {
+        if (!bill.isPaid()) {
             throw new BillNotPaidException();
         }
 

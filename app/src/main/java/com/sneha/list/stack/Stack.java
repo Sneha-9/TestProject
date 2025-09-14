@@ -1,33 +1,32 @@
 package com.sneha.list.stack;
 
 import com.sneha.list.linkedlist.DoublyLinkedList;
-import com.sneha.list.linkedlist.LinkedList;
 
 public class Stack<T> {
-    private DoublyLinkedList<T> ll ;
+    private final DoublyLinkedList<T> ll;
 
-   public Stack(){
+    public Stack() {
         ll = new DoublyLinkedList<>();
     }
 
-   public void push(T data){
+    public void push(T data) {
 
         ll.addLast(data);
     }
 
-   public T pop(){
+    public T pop() {
         return ll.deleteLast();
-   }
-
-    public void print(){
-       ll.printList();
     }
 
-    public int size(){
-       return ll.getSize();
+    public void print() {
+        ll.printList();
     }
 
-    public T peek(){
-       return ll.getLast();
+    public int size() {
+        return ll.getSize();
+    }
+
+    public T peek() {
+        return ll.getLast();
     }
 }

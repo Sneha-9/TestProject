@@ -2,9 +2,9 @@ package com.sneha.toDoList;
 
 public class GetTaskRequest {
 
-    private String id;
+    private final String id;
 
-    private GetTaskRequest(String id){
+    private GetTaskRequest(String id) {
         this.id = id;
     }
 
@@ -13,15 +13,13 @@ public class GetTaskRequest {
         return id;
     }
 
-    public static class  Builder{
+    public static class Builder {
         private String id;
 
-        public Builder withId(String id){
+        public Builder withId(String id) {
             this.id = id;
             return this;
         }
-
-
 
 
         public GetTaskRequest build() {

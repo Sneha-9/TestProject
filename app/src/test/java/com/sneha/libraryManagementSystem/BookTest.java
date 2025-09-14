@@ -4,31 +4,30 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 class BookTest {
-    IdGenerator idGenerator=mock(IdGenerator.class);
+    IdGenerator idGenerator = mock(IdGenerator.class);
 
     @AfterEach
-    void resetMocks(){
+    void resetMocks() {
         reset(idGenerator);
     }
 
     @Test
-    void shouldCreateBook(){
+    void shouldCreateBook() {
         when(idGenerator.generateId()).thenReturn("random");
 
-        Assertions.assertDoesNotThrow(()->new Book(idGenerator,"ABC"));
+        Assertions.assertDoesNotThrow(() -> new Book(idGenerator, "ABC"));
     }
 
     @Test
-    void throwsExceptionWhenBookNameIsNull(){
-        Assertions.assertThrows(IllegalArgumentException.class,()->new Book(idGenerator,null));
+    void throwsExceptionWhenBookNameIsNull() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> new Book(idGenerator, null));
     }
 
     @Test
-    void throwsExceptionWhenBookNameIsEmpty(){
-        Assertions.assertThrows(IllegalArgumentException.class,()->new Book(idGenerator,""));
+    void throwsExceptionWhenBookNameIsEmpty() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> new Book(idGenerator, ""));
     }
 }

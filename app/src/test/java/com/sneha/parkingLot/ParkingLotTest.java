@@ -98,25 +98,25 @@ class ParkingLotTest {
     }
 
     @Test
-    void throwsExceptionWhenBillIsUnpaid(){
+    void throwsExceptionWhenBillIsUnpaid() {
         Ticket ticket = mock(Ticket.class);
         Bill bill = mock(Bill.class);
-        Floor floor =mock(Floor.class);
+        Floor floor = mock(Floor.class);
 
         when(bill.isPaid()).thenReturn(false);
 
         Assertions.assertThrows(UnpaidBillException.class,
-                ()->new ParkingLot(idGenerator,timeUtil,terminal,floor).unPark(ticket,bill));
+                () -> new ParkingLot(idGenerator, timeUtil, terminal, floor).unPark(ticket, bill));
     }
 
     @Test
     void shouldUnparkVehicle() throws UnpaidBillException, FloorNotFoundException, LotNotFoundException {
-        Vehicle vehicle=mock(Vehicle.class);
+        Vehicle vehicle = mock(Vehicle.class);
         Ticket ticket = mock(Ticket.class);
 
         Bill bill = mock(Bill.class);
 
-        Floor floor =mock(Floor.class);
+        Floor floor = mock(Floor.class);
 
         when(bill.isPaid()).thenReturn(true);
 
@@ -124,22 +124,23 @@ class ParkingLotTest {
 
         when(ticket.getFloorId()).thenReturn("1234");
 
-      when(floor.getId()).thenReturn("1234");
+        when(floor.getId()).thenReturn("1234");
 
         when(ticket.getLotId()).thenReturn("12");
 
         when(floor.findLot(ticket.getLotId())).thenReturn(lot);
         when(lot.unparkVehicle()).thenReturn(vehicle);
-        Assertions.assertEquals(vehicle,new ParkingLot(idGenerator,timeUtil,terminal,floor).unPark(ticket,bill));
+        Assertions.assertEquals(vehicle, new ParkingLot(idGenerator, timeUtil, terminal, floor).unPark(ticket, bill));
     }
+
     @Test
     void shouldThrowExceptionWhenFloorIsNotFound() throws FloorNotFoundException, UnpaidBillException {
-        Vehicle vehicle=mock(Vehicle.class);
+        Vehicle vehicle = mock(Vehicle.class);
         Ticket ticket = mock(Ticket.class);
 
         Bill bill = mock(Bill.class);
 
-        Floor floor =mock(Floor.class);
+        Floor floor = mock(Floor.class);
 
         when(bill.isPaid()).thenReturn(true);
 
@@ -147,18 +148,19 @@ class ParkingLotTest {
 
         when(ticket.getFloorId()).thenReturn("1234");
 
-    //    when(floor.getId()).thenReturn("1234");
+        //    when(floor.getId()).thenReturn("1234");
 
-       Assertions.assertThrows(FloorNotFoundException.class,()-> new ParkingLot(idGenerator,timeUtil,terminal,floor).unPark(ticket,bill));
+        Assertions.assertThrows(FloorNotFoundException.class, () -> new ParkingLot(idGenerator, timeUtil, terminal, floor).unPark(ticket, bill));
     }
+
     @Test
     void shouldThrowExceptionWhenLotIsNotFound() throws FloorNotFoundException, UnpaidBillException {
-        Vehicle vehicle=mock(Vehicle.class);
+        Vehicle vehicle = mock(Vehicle.class);
         Ticket ticket = mock(Ticket.class);
 
         Bill bill = mock(Bill.class);
 
-        Floor floor =mock(Floor.class);
+        Floor floor = mock(Floor.class);
 
         when(bill.isPaid()).thenReturn(true);
 
@@ -169,6 +171,6 @@ class ParkingLotTest {
         when(floor.getId()).thenReturn("1234");
 
 
-        Assertions.assertThrows(LotNotFoundException.class,()-> new ParkingLot(idGenerator,timeUtil,terminal,floor).unPark(ticket,bill));
+        Assertions.assertThrows(LotNotFoundException.class, () -> new ParkingLot(idGenerator, timeUtil, terminal, floor).unPark(ticket, bill));
     }
 }

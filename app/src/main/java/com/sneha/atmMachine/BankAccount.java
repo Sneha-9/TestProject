@@ -1,15 +1,15 @@
 package com.sneha.atmMachine;
 
 public class BankAccount {
-    private String accountId;
+    private final String accountId;
     private float amount;
-    private String govenmentId;
+    private final String govenmentId;
 
-    private final int maxValue=10000;
-    private final int minValue=0;
+    private final int maxValue = 10000;
+    private final int minValue = 0;
 
-    public BankAccount(IdGenerator idGenerator, float amount, String govenmentId){
-        if(amount < 0){
+    public BankAccount(IdGenerator idGenerator, float amount, String govenmentId) {
+        if (amount < 0) {
             throw new IllegalArgumentException("Amount cannot be negative");
         }
 
@@ -27,23 +27,23 @@ public class BankAccount {
         return accountId;
     }
 
-    public void addBalance(float amount){
-        if(amount > maxValue){
-            throw  new IllegalArgumentException("Amount cannot exceed " + maxValue);
+    public void addBalance(float amount) {
+        if (amount > maxValue) {
+            throw new IllegalArgumentException("Amount cannot exceed " + maxValue);
         }
-        this.amount = this.amount+amount;
+        this.amount = this.amount + amount;
     }
 
-    public void withrawBalance(float amount){
-        if(amount > maxValue){
+    public void withrawBalance(float amount) {
+        if (amount > maxValue) {
             throw new IllegalArgumentException("Maxmium withdrawal cannot exceed " + maxValue);
         }
 
-        if(amount > this.amount){
+        if (amount > this.amount) {
             throw new IllegalArgumentException("Amount of withdrawal exceeds balance");
         }
 
-        if(amount <= minValue ){
+        if (amount <= minValue) {
             throw new IllegalArgumentException(String.format("Amount cannot exceed %d or be negative", minValue));
         }
 

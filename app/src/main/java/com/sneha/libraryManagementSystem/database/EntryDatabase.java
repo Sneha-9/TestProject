@@ -9,7 +9,7 @@ import java.util.Map;
 
 public class EntryDatabase {
 
-    private Map<String, Entry> enteriesDB = new HashMap<>();
+    private final Map<String, Entry> enteriesDB = new HashMap<>();
 
 
     public void addEntry(String cardId, TimeUtil timeUtil, String bookId) throws IllegalArgumentException {

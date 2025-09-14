@@ -1,7 +1,7 @@
 package com.sneha.atmMachine.database;
 
-import atmMachine.Card;
-import atmMachine.IdGenerator;
+import com.sneha.atmMachine.Card;
+import com.sneha.atmMachine.IdGenerator;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -12,22 +12,23 @@ class CardDataBaseTest {
     IdGenerator idGenerator = mock(IdGenerator.class);
 
     @AfterEach
-    void mockReset(){
+    void mockReset() {
         reset(idGenerator);
     }
+
     @Test
-    void shouldGetCard(){
+    void shouldGetCard() {
         Card card = mock(Card.class);
         when(card.getId()).thenReturn("123");
         when(card.getAccountId()).thenReturn("123456");
 
         CardDataBase cardDataBase = new CardDataBase();
         cardDataBase.addCard(card);
-        Assertions.assertEquals(card,cardDataBase.validateCard(card));
+        Assertions.assertEquals(card, cardDataBase.validateCard(card));
     }
 
     @Test
-    void shouldNotGetCard(){
+    void shouldNotGetCard() {
         Card card = mock(Card.class);
         when(card.getId()).thenReturn("123");
         when(card.getAccountId()).thenReturn("123456");
@@ -36,5 +37,5 @@ class CardDataBaseTest {
 
         Assertions.assertNull(cardDataBase.validateCard(card));
     }
-  
+
 }

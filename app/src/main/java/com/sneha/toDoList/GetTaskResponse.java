@@ -1,16 +1,32 @@
 package com.sneha.toDoList;
 
 public class GetTaskResponse {
-    private String title;
-    private String status;
-    private long dueDate;
-    private String id;
+    private final String title;
+    private final String status;
+    private final long dueDate;
+    private final String id;
 
-    GetTaskResponse(String status,String id,long dueDate,String title){
-        this.dueDate=dueDate;
-        this.title=title;
-        this.status=status;
-        this.id=id;
+    GetTaskResponse(String status, String id, long dueDate, String title) {
+        this.dueDate = dueDate;
+        this.title = title;
+        this.status = status;
+        this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public long getDueDate() {
+        return dueDate;
+    }
+
+    public String getId() {
+        return id;
     }
 
     @Override

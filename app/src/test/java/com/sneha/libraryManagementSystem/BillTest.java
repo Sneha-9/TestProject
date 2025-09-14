@@ -11,60 +11,68 @@ class BillTest {
     IdGenerator idGenerator = mock(IdGenerator.class);
 
     @AfterEach
-    void mockReset(){
+    void mockReset() {
         reset(idGenerator);
     }
 
     @Test
-    void billIsCreated(){
+    void billIsCreated() {
         when(idGenerator.generateId()).thenReturn("random");
-        Assertions.assertDoesNotThrow(()->new Bill(idGenerator,"123",2,"ABC",10));
+        Assertions.assertDoesNotThrow(() -> new Bill(idGenerator, "123", 2, "ABC", 10));
     }
 
     @Test
-    void returnsTrueIfBillIsPaid(){
+    void returnsTrueIfBillIsPaid() {
         when(idGenerator.generateId()).thenReturn("random");
-        Bill b = new Bill(idGenerator,"12",2,"AB",10);
+        Bill b = new Bill(idGenerator, "12", 2, "AB", 10);
         b.markAsPaid();
-        assertEquals(true,b.isPaid());
-    }
-    @Test
-    void returnsFalseIfBillIsNotPaid(){
-        when(idGenerator.generateId()).thenReturn("random");
-        Bill b = new Bill(idGenerator,"12",2,"AB",10);
-        assertEquals(false,b.isPaid());
+        assertTrue(b.isPaid());
     }
 
     @Test
-    void throwsExceptionWhenAmountIsLessThanZero(){
-        Assertions.assertThrows(IllegalArgumentException.class,()->new Bill(idGenerator,"123",-2,"ABC",10));
+    void returnsFalseIfBillIsNotPaid() {
+        when(idGenerator.generateId()).thenReturn("random");
+        Bill b = new Bill(idGenerator, "12", 2, "AB", 10);
+        assertFalse(b.isPaid());
     }
+
     @Test
-    void throwsExceptionWhenAmountIsEqualToZero(){
-        Assertions.assertThrows(IllegalArgumentException.class,()->new Bill(idGenerator,"123",0,"ABC",10));
+    void throwsExceptionWhenAmountIsLessThanZero() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> new Bill(idGenerator, "123", -2, "ABC", 10));
     }
+
     @Test
-    void throwsExceptionWhenBookNameIsEmpty(){
-        Assertions.assertThrows(IllegalArgumentException.class,()->new Bill(idGenerator,"123",10,"",10));
+    void throwsExceptionWhenAmountIsEqualToZero() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> new Bill(idGenerator, "123", 0, "ABC", 10));
     }
+
     @Test
-    void throwsExceptionWhenBookNameIsNull(){
-        Assertions.assertThrows(IllegalArgumentException.class,()->new Bill(idGenerator,"123",10,null,10));
+    void throwsExceptionWhenBookNameIsEmpty() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> new Bill(idGenerator, "123", 10, "", 10));
     }
+
     @Test
-    void throwsExceptionWhenBookIdIsEmpty(){
-        Assertions.assertThrows(IllegalArgumentException.class,()->new Bill(idGenerator,"",10,"ab",10));
+    void throwsExceptionWhenBookNameIsNull() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> new Bill(idGenerator, "123", 10, null, 10));
     }
+
     @Test
-    void throwsExceptionWhenBookIdIsNull(){
-        Assertions.assertThrows(IllegalArgumentException.class,()->new Bill(idGenerator,null,10,"ab",10));
+    void throwsExceptionWhenBookIdIsEmpty() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> new Bill(idGenerator, "", 10, "ab", 10));
     }
+
     @Test
-    void throwsExceptionWhenDurationIsNegative(){
-        Assertions.assertThrows(IllegalArgumentException.class,()->new Bill(idGenerator,null,10,"ab",-10));
+    void throwsExceptionWhenBookIdIsNull() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> new Bill(idGenerator, null, 10, "ab", 10));
     }
+
     @Test
-    void throwsExceptionWhenDurationIsZero(){
-        Assertions.assertThrows(IllegalArgumentException.class,()->new Bill(idGenerator,null,10,"ab",0));
+    void throwsExceptionWhenDurationIsNegative() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> new Bill(idGenerator, null, 10, "ab", -10));
+    }
+
+    @Test
+    void throwsExceptionWhenDurationIsZero() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> new Bill(idGenerator, null, 10, "ab", 0));
     }
 }

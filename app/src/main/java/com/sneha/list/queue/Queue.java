@@ -3,22 +3,25 @@ package com.sneha.list.queue;
 import com.sneha.list.linkedlist.DoublyLinkedList;
 
 public class Queue<T> {
-    private DoublyLinkedList<T> dl;
+    private final DoublyLinkedList<T> dl;
 
-    public Queue(){
+    public Queue() {
         dl = new DoublyLinkedList<>();
     }
-    public void enqueue(T data){
+
+    public void enqueue(T data) {
         dl.addLast(data);
     }
-    public T dequeue(){
+
+    public T dequeue() {
         return dl.deleteFirst();
     }
-    public int size(){
+
+    public int size() {
         return dl.getSize();
     }
 
-    public void print(){
+    public void print() {
         dl.printList();
     }
 }

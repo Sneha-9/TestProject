@@ -3,12 +3,12 @@ package com.sneha.libraryManagementSystem;
 import java.util.Objects;
 
 public class Bill {
-    private String id;
-    private String bookId;
-    private float amount;
-    private String bookName;
+    private final String id;
+    private final String bookId;
+    private final float amount;
+    private final String bookName;
     private boolean isPaid = false;
-    private long duration;
+    private final long duration;
 
     public Bill(IdGenerator idGenerator, String bookId, float amount, String bookName, long duration) throws IllegalArgumentException {
         if (amount <= 0) {

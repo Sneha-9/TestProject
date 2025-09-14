@@ -7,6 +7,8 @@
 
 plugins {
     // Apply the application plugin to add support for building a CLI application in Java.
+    id("org.springframework.boot") version "3.3.4"
+    id("io.spring.dependency-management") version "1.1.6"
     application
 }
 
@@ -20,6 +22,14 @@ dependencies {
     testImplementation(libs.junit.jupiter)
 
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+
+    implementation("org.springframework.boot:spring-boot-starter-web")
+    testImplementation("org.springframework.boot:spring-boot-starter-test")
+
+    implementation("org.apache.logging.log4j:log4j-api:2.25.1")
+    implementation("org.apache.logging.log4j:log4j-core:2.25.1")
+
+    implementation("org.postgresql:postgresql:42.7.7")
 
     // This dependency is used by the application.
     implementation(libs.guava)

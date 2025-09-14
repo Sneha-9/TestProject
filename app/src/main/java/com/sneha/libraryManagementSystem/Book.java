@@ -2,8 +2,8 @@ package com.sneha.libraryManagementSystem;
 
 
 public class Book {
-    private String name;
-    private String id;
+    private final String name;
+    private final String id;
 
     Book(IdGenerator idGenerator, String name) throws IllegalArgumentException {
         if (name == null || name.isEmpty()) {

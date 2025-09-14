@@ -2,7 +2,7 @@ package com.sneha.libraryManagementSystem;
 
 
 public class Card {
-    private String id;
+    private final String id;
 
     Card(IdGenerator idGenerator) {
         this.id = idGenerator.generateId();

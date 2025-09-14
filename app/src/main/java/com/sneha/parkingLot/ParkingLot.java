@@ -4,9 +4,9 @@ import java.util.Objects;
 
 public class ParkingLot {
     private final Floor[] floors;
-    private  TimeUtil timeUtil;
+    private final TimeUtil timeUtil;
     private final Terminal terminal;
-    private IdGenerator idGenerator;
+    private final IdGenerator idGenerator;
 
     public ParkingLot(IdGenerator idGenerator, TimeUtil timeUtil, Terminal terminal, Floor... floors) {
         if (floors.length == 0) {
@@ -49,7 +49,7 @@ public class ParkingLot {
     }
 
     public Vehicle unPark(Ticket ticket, Bill bill) throws UnpaidBillException, FloorNotFoundException, LotNotFoundException {
-        if(bill.isPaid() == false  ){
+        if (!bill.isPaid()) {
             throw new UnpaidBillException();
         }
 
@@ -61,10 +61,10 @@ public class ParkingLot {
                 break;
             }
         }
-        if(floor == null){
+        if (floor == null) {
             throw new FloorNotFoundException();
         }
-        if(floor.findLot(ticket.getLotId())==null){
+        if (floor.findLot(ticket.getLotId()) == null) {
             throw new LotNotFoundException();
         }
 

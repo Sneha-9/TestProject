@@ -1,6 +1,6 @@
 package com.sneha.linkedlist;
 
-import list.linkedlist.DoublyLinkedList;
+import com.sneha.list.linkedlist.DoublyLinkedList;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
@@ -9,7 +9,7 @@ import org.junit.jupiter.api.TestInstance;
 class DoublyLinkedListTest {
 
     @Test
-    void testAddFirst(){
+    void testAddFirst() {
         DoublyLinkedList doublyLinkedList = new DoublyLinkedList();
         doublyLinkedList.addFirst(2);
 

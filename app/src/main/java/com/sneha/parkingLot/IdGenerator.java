@@ -4,7 +4,7 @@ import java.util.UUID;
 
 public class IdGenerator {
 
-    public String generate(){
+    public String generate() {
         return UUID.randomUUID().toString();
     }
 

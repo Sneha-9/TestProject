@@ -1,9 +1,10 @@
 package com.sneha.splitwise;
 
 public class Person {
-    private Amount amountSpent;
-    private String name;
-    Person(String name,Amount amountSpent){
+    private final Amount amountSpent;
+    private final String name;
+
+    Person(String name, Amount amountSpent) {
         this.amountSpent = amountSpent;
         this.name = name;
     }

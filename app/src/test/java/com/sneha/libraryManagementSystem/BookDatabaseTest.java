@@ -1,6 +1,6 @@
 package com.sneha.libraryManagementSystem;
 
-import libraryManagementSystem.database.BookDatabase;
+import com.sneha.libraryManagementSystem.database.BookDatabase;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -11,17 +11,17 @@ import java.util.List;
 import static org.mockito.Mockito.*;
 
 class BookDatabaseTest {
-    IdGenerator idGenerator=mock(IdGenerator.class);
+    IdGenerator idGenerator = mock(IdGenerator.class);
 
 
     @AfterEach
-    void mockReset(){
+    void mockReset() {
 
         reset(idGenerator);
     }
 
     @Test
-    void shouldAddBook(){
+    void shouldAddBook() {
         when(idGenerator.generateId()).thenReturn("random");
         Book mockBook = mock(Book.class);
         List<Book> books = new ArrayList<>();
@@ -31,7 +31,7 @@ class BookDatabaseTest {
     }
 
     @Test
-    void shouldRemoveBook(){
+    void shouldRemoveBook() {
         when(idGenerator.generateId()).thenReturn("random");
         Book mockBook = mock(Book.class);
         List<Book> books = new ArrayList<>();
@@ -42,7 +42,7 @@ class BookDatabaseTest {
     }
 
     @Test
-    void shouldGetBook(){
+    void shouldGetBook() {
         when(idGenerator.generateId()).thenReturn("random");
         Book mockBook = mock(Book.class);
         when(mockBook.getName()).thenReturn("ABC");
@@ -50,8 +50,8 @@ class BookDatabaseTest {
         List<Book> books = new ArrayList<>();
         BookDatabase bookDatabase = new BookDatabase(books);
         bookDatabase.addBook(mockBook);
-        Book book= bookDatabase.getBook(mockBook.getName());
-        Assertions.assertEquals(book.getName(),mockBook.getName());
+        Book book = bookDatabase.getBook(mockBook.getName());
+        Assertions.assertEquals(book.getName(), mockBook.getName());
     }
 
 }

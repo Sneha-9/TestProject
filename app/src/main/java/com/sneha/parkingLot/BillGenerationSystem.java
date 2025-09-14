@@ -4,14 +4,15 @@ public class BillGenerationSystem {
     //private Ticket ticket;
 //    private final long endTime = System.currentTimeMillis();
 
-    private TimeUtil timeUtil;
-    private IdGenerator idGenerator;
-    private String regex ="^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$";
-    public BillGenerationSystem(IdGenerator idGenerator, TimeUtil timeUtil)throws IllegalArgumentException {
-        if(idGenerator == null ){
-            throw  new IllegalArgumentException("Id cannot be null");
+    private final TimeUtil timeUtil;
+    private final IdGenerator idGenerator;
+    private final String regex = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$";
+
+    public BillGenerationSystem(IdGenerator idGenerator, TimeUtil timeUtil) throws IllegalArgumentException {
+        if (idGenerator == null) {
+            throw new IllegalArgumentException("Id cannot be null");
         }
-        if(!idGenerator.generate().matches(regex)){
+        if (!idGenerator.generate().matches(regex)) {
             throw new IllegalArgumentException("Id is not valid");
         }
         this.idGenerator = idGenerator;
@@ -19,7 +20,7 @@ public class BillGenerationSystem {
     }
 
 
-    Bill generateBill(Ticket ticket)throws IllegalArgumentException {
+    Bill generateBill(Ticket ticket) throws IllegalArgumentException {
         long duration = timeUtil.getCurrentTime() - ticket.getStartTime();
         float amount = duration * 10;
 

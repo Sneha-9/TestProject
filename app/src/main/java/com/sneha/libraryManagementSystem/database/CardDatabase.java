@@ -5,7 +5,7 @@ import com.sneha.libraryManagementSystem.Card;
 import java.util.List;
 
 public class CardDatabase {
-    private List<Card> cards;
+    private final List<Card> cards;
 
     public CardDatabase(List<Card> cards) {
         this.cards = cards;

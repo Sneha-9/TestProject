@@ -1,15 +1,14 @@
 package com.sneha.shapes;
 
-import java.io.IOException;
+public class Rectangle implements Shape {
+    private final float length;
+    private final float breadth;
 
-public class Rectangle implements Shape{
-    private  float length;
-    private float breadth;
     Rectangle(float length, float breadth) throws IllegalArgumentException {
-        if(length > 10000 || length <= 0 ){
+        if (length > 10000 || length <= 0) {
             throw new IllegalArgumentException("Invalid Length entered for a rectangle");
         }
-        if(breadth > 10000 || breadth <= 0 ){
+        if (breadth > 10000 || breadth <= 0) {
             throw new IllegalArgumentException("Invalid Breadth entered for a rectangle");
         }
         this.length = length;
@@ -19,7 +18,7 @@ public class Rectangle implements Shape{
 
 
     @Override
-    public float area()  {
-        return length*breadth;
+    public float area() {
+        return length * breadth;
     }
 }

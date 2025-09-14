@@ -6,16 +6,17 @@ public class Vehicle {
     private final String number;
     private final String type;
     private Constants constants;
-    public Vehicle(String number, String type)throws IllegalArgumentException {
-        if(number == null || number.isEmpty()){
+
+    public Vehicle(String number, String type) throws IllegalArgumentException {
+        if (number == null || number.isEmpty()) {
             throw new IllegalArgumentException("Vehicle number cannot be empty or null");
         }
 
-        if(type == null || type.isEmpty()){
-            throw  new IllegalArgumentException("Vehicle Type cannot be empty or null");
+        if (type == null || type.isEmpty()) {
+            throw new IllegalArgumentException("Vehicle Type cannot be empty or null");
         }
 
-        if(!type.equals(constants.TWO_WHEELER) && !type.equals(constants.FOUR_WHEELER)){
+        if (!type.equals(Constants.TWO_WHEELER) && !type.equals(Constants.FOUR_WHEELER)) {
             throw new IllegalArgumentException("Vehicle Type can be either TWO_WHEELER or FOUR_WHEELER");
         }
 

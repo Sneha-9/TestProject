@@ -1,7 +1,7 @@
 package com.sneha.parkingLot;
 
 public class FloorNotFoundException extends Exception {
-    FloorNotFoundException(){
+    FloorNotFoundException() {
         super("Floor not found");
     }
 }

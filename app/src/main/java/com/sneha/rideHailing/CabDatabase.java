@@ -5,19 +5,19 @@ import java.util.List;
 public class CabDatabase {
     List<Cab> cabs;
 
-    CabDatabase(List<Cab> cabs){
-        this.cabs=cabs;
+    CabDatabase(List<Cab> cabs) {
+        this.cabs = cabs;
     }
 
-    void addCabs(Cab cab){
-
-    }
-
-    void removeCab(Cab cab){
+    void addCabs(Cab cab) {
 
     }
 
-    List<Cab> getCabs(){
+    void removeCab(Cab cab) {
+
+    }
+
+    List<Cab> getCabs() {
         return null;
     }
 

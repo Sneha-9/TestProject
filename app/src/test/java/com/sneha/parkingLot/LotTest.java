@@ -1,7 +1,6 @@
 package com.sneha.parkingLot;
 
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
@@ -13,8 +12,8 @@ import static org.mockito.Mockito.when;
 
 class LotTest {
 
-    private IdGenerator idGenerator = mock(IdGenerator.class);
-    private TimeUtil timeUtil = mock(TimeUtil.class);
+    private final IdGenerator idGenerator = mock(IdGenerator.class);
+    private final TimeUtil timeUtil = mock(TimeUtil.class);
 
 
     @AfterEach
@@ -35,40 +34,42 @@ class LotTest {
     }
 
     @Test
-    void throwsExceptionWhenIdDoesNotMatchPattern(){
+    void throwsExceptionWhenIdDoesNotMatchPattern() {
         when(idGenerator.generate()).thenReturn("f472c3d479");
-        assertThrows(IllegalArgumentException.class,()->new Lot(idGenerator, Constants.TWO_WHEELER));
-    }
-    @Test
-    void throwsExceptionWhenVehicleTypeDoesNotMatchPattern(){
-        when(idGenerator.generate()).thenReturn("f472c3d479");
-        assertThrows(IllegalArgumentException.class,()->new Lot(idGenerator, "THREE_WHEELER"));
+        assertThrows(IllegalArgumentException.class, () -> new Lot(idGenerator, Constants.TWO_WHEELER));
     }
 
     @Test
-    void checkIfLotIsAvailable(){
+    void throwsExceptionWhenVehicleTypeDoesNotMatchPattern() {
+        when(idGenerator.generate()).thenReturn("f472c3d479");
+        assertThrows(IllegalArgumentException.class, () -> new Lot(idGenerator, "THREE_WHEELER"));
+    }
+
+    @Test
+    void checkIfLotIsAvailable() {
         when(idGenerator.generate()).thenReturn(UUID.randomUUID().toString());
 
         Lot lot = new Lot(idGenerator, Constants.TWO_WHEELER);
 
-        assertEquals(true, lot.isAvailable());
+        assertTrue(lot.isAvailable());
     }
 
     @Test
-    void  checkIfLotIsNotAvailable(){
+    void checkIfLotIsNotAvailable() {
         Vehicle vehicle = mock(Vehicle.class);
         when(idGenerator.generate()).thenReturn("f47ac10b-58cc-4372-a567-0e02b2c3d479");
         Lot lot = new Lot(idGenerator, Constants.TWO_WHEELER);
-         lot.parkVehicle(vehicle);
-          //when(vehicle.getVehicleType()).thenReturn("TWO_WHEELER");
-          //when(vehicle.getVehicleNumber()).thenReturn("123");
-        System.out.println(vehicle.getVehicleNumber()+" "+ vehicle.getVehicleType()+ " "+ lot.isAvailable());
+        lot.parkVehicle(vehicle);
+        //when(vehicle.getVehicleType()).thenReturn("TWO_WHEELER");
+        //when(vehicle.getVehicleNumber()).thenReturn("123");
+        System.out.println(vehicle.getVehicleNumber() + " " + vehicle.getVehicleType() + " " + lot.isAvailable());
 
-        assertEquals(false, lot.isAvailable());
+        assertFalse(lot.isAvailable());
 
     }
+
     @Test
-    void  checkIfVehicleIsUnparked(){
+    void checkIfVehicleIsUnparked() {
         Vehicle vehicle = mock(Vehicle.class);
         when(idGenerator.generate()).thenReturn("f47ac10b-58cc-4372-a567-0e02b2c3d479");
         Lot lot = new Lot(idGenerator, Constants.TWO_WHEELER);
@@ -76,7 +77,7 @@ class LotTest {
         lot.unparkVehicle();
         //System.out.println(vehicle.getVehicleNumber()+" "+ vehicle.getVehicleType()+ " "+ mockLot.isAvailable());
 
-        assertEquals(true, lot.isAvailable());
+        assertTrue(lot.isAvailable());
 
     }
 }

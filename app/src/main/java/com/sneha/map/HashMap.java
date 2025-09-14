@@ -1,23 +1,22 @@
 package com.sneha.map;
 
-import list.linkedlist.DoublyLinkedList;
-import util.Pair;
+import com.sneha.list.linkedlist.DoublyLinkedList;
+import com.sneha.util.Pair;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class HashMap<K,V> implements Map<K,V>{
+public class HashMap<K, V> implements Map<K, V> {
 
     private final int LIMIT = 1000;
-    private final List<DoublyLinkedList<Pair<K,V>>> data = Arrays.asList(new DoublyLinkedList[LIMIT]);
+    private final List<DoublyLinkedList<Pair<K, V>>> data = Arrays.asList(new DoublyLinkedList[LIMIT]);
 
     private int count = 0;
 
     @Override
     public boolean put(K key, V value) {
-        Pair<K,V> p =find(key);
-        if(p != null){
+        Pair<K, V> p = find(key);
+        if (p != null) {
             p.setSecond(value);
             return true;
         }
@@ -41,8 +40,8 @@ public class HashMap<K,V> implements Map<K,V>{
 
     @Override
     public boolean remove(K key) {
-        Pair<K,V> p = find(key);
-        if(p != null) {
+        Pair<K, V> p = find(key);
+        if (p != null) {
             DoublyLinkedList<Pair<K, V>> doublyLinkedList = getList(key);
             doublyLinkedList.deleteValue(p);
             count--;
@@ -83,7 +82,7 @@ public class HashMap<K,V> implements Map<K,V>{
 
         int index = hash % LIMIT;
 
-        DoublyLinkedList<Pair<K, V>> doublyLinkedList =  data.get(index);
+        DoublyLinkedList<Pair<K, V>> doublyLinkedList = data.get(index);
 
         if (doublyLinkedList == null) {
             doublyLinkedList = new DoublyLinkedList<>();

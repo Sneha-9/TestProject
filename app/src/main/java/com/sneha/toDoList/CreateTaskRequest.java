@@ -1,8 +1,15 @@
 package com.sneha.toDoList;
 
+import org.springframework.lang.Nullable;
+
 public class CreateTaskRequest {
     private String title;
+
+    @Nullable
     private long dueDate;
+
+    public CreateTaskRequest() {
+    }
 
     private CreateTaskRequest(String title, long dueDate) {
         this.title = title;

@@ -1,20 +1,20 @@
 package com.sneha.list.linkedlist;
 
-public class LinkedList<T>{
+public class LinkedList<T> {
     private Node<T> start;
 
-    public void printlist(){
-        Node<T> temp =start;
-        while(temp != null){
+    public void printlist() {
+        Node<T> temp = start;
+        while (temp != null) {
             System.out.println(temp.getData());
-            temp=temp.getNext();
+            temp = temp.getNext();
 
         }
     }
 
-    public void addFirst(T data){
+    public void addFirst(T data) {
         Node<T> n = new Node<>(data);
-        if(start == null){
+        if (start == null) {
             start = n;
             return;
         }
@@ -22,27 +22,27 @@ public class LinkedList<T>{
         start = n;
     }
 
-    public void addLast(T data){
-        Node<T> n =  new Node(data);
-        if(start == null){
+    public void addLast(T data) {
+        Node<T> n = new Node(data);
+        if (start == null) {
             start = n;
             return;
         }
-        Node<T> temp =start;
-        while(temp.getNext() != null){
+        Node<T> temp = start;
+        while (temp.getNext() != null) {
             temp = temp.getNext();
         }
         temp.setNext(n);
     }
 
-    public T deleteLast(){
-        if(start == null){
+    public T deleteLast() {
+        if (start == null) {
             System.out.println("List is empty");
             return null;
         }
-        Node<T> temp =start;
-        while(temp.getNext().getNext() != null){
-            temp =temp.getNext();
+        Node<T> temp = start;
+        while (temp.getNext().getNext() != null) {
+            temp = temp.getNext();
         }
         T data = temp.getData();
         temp.setNext(null);
@@ -50,8 +50,8 @@ public class LinkedList<T>{
 
     }
 
-    public T deleteFirst(){
-        if(start == null){
+    public T deleteFirst() {
+        if (start == null) {
             System.out.println("List is empty");
             return null;
         }

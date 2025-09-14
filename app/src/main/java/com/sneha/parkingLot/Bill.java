@@ -1,7 +1,6 @@
 package com.sneha.parkingLot;
 
 import java.util.Objects;
-import java.util.UUID;
 
 public class Bill {
 
@@ -12,19 +11,19 @@ public class Bill {
     private boolean paid = false;
     private final long duration;
 
-    Bill(IdGenerator idGenerator, float amount, String vehicleNumber, String ticketId, long duration)throws IllegalArgumentException {
+    Bill(IdGenerator idGenerator, float amount, String vehicleNumber, String ticketId, long duration) throws IllegalArgumentException {
 
-        if(amount <= 0){
+        if (amount <= 0) {
             throw new IllegalArgumentException("Amount cannot be less than or equal to zero for vehicle parking");
         }
-        if(vehicleNumber == null || vehicleNumber.isEmpty()){
+        if (vehicleNumber == null || vehicleNumber.isEmpty()) {
             throw new IllegalArgumentException("Vehicle Number cannot be empty or null");
         }
-        if(ticketId == null || ticketId.isEmpty()){
+        if (ticketId == null || ticketId.isEmpty()) {
             throw new IllegalArgumentException("TicketId cannot be empty or null");
         }
-        if( duration <= 0){
-           throw new IllegalArgumentException("Duration cannot be less than or equal to zero");
+        if (duration <= 0) {
+            throw new IllegalArgumentException("Duration cannot be less than or equal to zero");
         }
 
         //Validation for others are missing

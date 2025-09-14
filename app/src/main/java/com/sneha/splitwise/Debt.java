@@ -1,11 +1,12 @@
 package com.sneha.splitwise;
 
 public class Debt {
-    private Amount amountOwed;
-    private String payer;
-    private String payee;
-    Debt(Amount amountOwed,String payee,String payer){
-        this.amountOwed=amountOwed;
+    private final Amount amountOwed;
+    private final String payer;
+    private final String payee;
+
+    Debt(Amount amountOwed, String payee, String payer) {
+        this.amountOwed = amountOwed;
         this.payee = payee;
         this.payer = payer;
     }

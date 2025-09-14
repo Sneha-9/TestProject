@@ -4,14 +4,16 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.*;
 
 class BillGenerationSystemTest {
 
-    private TimeUtil timeUtil = mock(TimeUtil.class);
-    private IdGenerator idGenerator = mock(IdGenerator.class);
-    private   Ticket ticket = mock(Ticket.class);
+    private final TimeUtil timeUtil = mock(TimeUtil.class);
+    private final IdGenerator idGenerator = mock(IdGenerator.class);
+    private final Ticket ticket = mock(Ticket.class);
+
     @AfterEach
     void resetMocks() {
         reset(timeUtil);
@@ -37,20 +39,18 @@ class BillGenerationSystemTest {
     }
 
     @Test
-    void throwsExceptionWhenIddoesntmatchpattern(){
+    void throwsExceptionWhenIddoesntmatchpattern() {
         when(idGenerator.generate()).thenReturn("f472c3d479");
-        assertThrows(IllegalArgumentException.class,()->new Terminal(idGenerator,timeUtil));
+        assertThrows(IllegalArgumentException.class, () -> new Terminal(idGenerator, timeUtil));
     }
+
     @Test
-    void IdMatchesPatternforUUid(){
+    void IdMatchesPatternforUUid() {
         when(idGenerator.generate()).thenReturn("f47ac10b-58cc-4372-a567-0e02b2c3d479");
 
-        String terminal = new Terminal(idGenerator,timeUtil).getId();
-        assertEquals("f47ac10b-58cc-4372-a567-0e02b2c3d479",terminal);
+        String terminal = new Terminal(idGenerator, timeUtil).getId();
+        assertEquals("f47ac10b-58cc-4372-a567-0e02b2c3d479", terminal);
     }
-
-
-
 
 
 }

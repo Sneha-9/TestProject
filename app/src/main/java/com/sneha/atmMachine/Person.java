@@ -1,9 +1,9 @@
 package com.sneha.atmMachine;
 
 public class Person {
-    private String governmentId;
+    private final String governmentId;
 
-    Person(IdGenerator idGenerator){
+    Person(IdGenerator idGenerator) {
         this.governmentId = idGenerator.generateId();
     }
 

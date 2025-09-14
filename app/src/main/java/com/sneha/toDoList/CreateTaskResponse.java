@@ -1,9 +1,10 @@
 package com.sneha.toDoList;
 
 public class CreateTaskResponse {
-    private String id;
-    CreateTaskResponse(String id){
-        this.id=id;
+    private final String id;
+
+    CreateTaskResponse(String id) {
+        this.id = id;
     }
 
     public String getId() {

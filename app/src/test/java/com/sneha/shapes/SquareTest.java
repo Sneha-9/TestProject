@@ -3,28 +3,28 @@ package com.sneha.shapes;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class SquareTest {
 
     @Test
-    void validSquareLength(){
+    void validSquareLength() {
         assertEquals(4, new Square(2).area());
     }
 
     @Test
-    void throwsExcpetionWhenNegativeSquareLength(){
-        Assertions.assertThrows(IllegalArgumentException.class,() ->new Square(-1).area());
+    void throwsExcpetionWhenNegativeSquareLength() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> new Square(-1).area());
     }
 
     @Test
-    void throwsExceptionWhenInvalidSquareLength(){
-        Assertions.assertThrows(IllegalArgumentException.class,()->new Square(100000).area());
+    void throwsExceptionWhenInvalidSquareLength() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> new Square(100000).area());
     }
 
     @Test
-    void throwExceptionWhenLengthIsZero(){
-        Assertions.assertThrows(IllegalArgumentException.class, ()->new Square(0).area());
+    void throwExceptionWhenLengthIsZero() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> new Square(0).area());
     }
 
 }

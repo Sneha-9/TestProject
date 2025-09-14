@@ -1,26 +1,25 @@
 package com.sneha.parkingLot;
 
 import java.util.Objects;
-import java.util.UUID;
 
 public class Lot {
     private Vehicle vehicle;
-    private  IdGenerator idGenerator ;
+    private final IdGenerator idGenerator;
 
     private final String supportedVehicleType;
 
-    private String regex ="^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$";
+    private final String regex = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$";
 
-    Lot(IdGenerator idGenerator,String supportedVehicleType)throws IllegalArgumentException {
-        if(idGenerator == null ){
-            throw  new IllegalArgumentException("Id cannot be null");
+    Lot(IdGenerator idGenerator, String supportedVehicleType) throws IllegalArgumentException {
+        if (idGenerator == null) {
+            throw new IllegalArgumentException("Id cannot be null");
         }
 
-        if(!idGenerator.generate().matches(regex)){
+        if (!idGenerator.generate().matches(regex)) {
             throw new IllegalArgumentException("Id is not valid");
         }
 
-        if(!supportedVehicleType.equals(Constants.TWO_WHEELER)&& !supportedVehicleType.equals(Constants.FOUR_WHEELER)){
+        if (!supportedVehicleType.equals(Constants.TWO_WHEELER) && !supportedVehicleType.equals(Constants.FOUR_WHEELER)) {
             throw new IllegalArgumentException("Vehicle Type can be either TWO_WHEELER or FOUR_WHEELER");
         }
 

@@ -5,7 +5,7 @@ import com.sneha.libraryManagementSystem.Book;
 import java.util.List;
 
 public class BookDatabase {
-    private List<Book> books;
+    private final List<Book> books;
 
     public BookDatabase(List<Book> books) {
         this.books = books;

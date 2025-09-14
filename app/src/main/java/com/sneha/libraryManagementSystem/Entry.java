@@ -3,8 +3,8 @@ package com.sneha.libraryManagementSystem;
 import java.util.Objects;
 
 public class Entry {
-    private String cardId;
-    private long startTime;
+    private final String cardId;
+    private final long startTime;
 
     public Entry(TimeUtil timeUtil, String cardId) throws IllegalArgumentException {
         if (cardId == null || cardId.isEmpty()) {

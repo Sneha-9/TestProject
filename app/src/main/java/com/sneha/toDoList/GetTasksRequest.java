@@ -1,9 +1,9 @@
 package com.sneha.toDoList;
 
 public class GetTasksRequest {
-    private String status;
+    private final String status;
 
-    GetTasksRequest(String status){
+    public GetTasksRequest(String status) {
         this.status = status;
     }
 
