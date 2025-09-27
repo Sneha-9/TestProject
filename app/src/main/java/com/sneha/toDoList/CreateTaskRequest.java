@@ -4,7 +4,6 @@ import org.springframework.lang.Nullable;
 
 public class CreateTaskRequest {
     private String title;
-
     @Nullable
     private long dueDate;
 
