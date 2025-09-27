@@ -1,11 +1,13 @@
 package com.sneha.movieTicketBookingSystem;
 
 public class TicketGenerationSystem {
-    private Idgenerator idgenerator;
-    private Movie movie;
+    private final Idgenerator idgenerator;
 
+    public TicketGenerationSystem(Idgenerator idgenerator) {
+        this.idgenerator = idgenerator;
+    }
 
-    Ticket generateTicket(){
-        return new Ticket(idgenerator,0,movie.toString());
+    Ticket generateTicket() {
+        return new Ticket(idgenerator);
     }
 }

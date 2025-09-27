@@ -1,13 +1,9 @@
 package com.sneha.movieTicketBookingSystem;
 
 public class Ticket {
-    private String id;
-    private float amount;
-    private String movieName;
+    private final String id;
 
-    Ticket(Idgenerator idgenerator, float amount, String movieName){
-        this.amount= amount;
-        this.movieName = movieName;
+    Ticket(Idgenerator idgenerator) {
         this.id = idgenerator.generate();
     }
 
