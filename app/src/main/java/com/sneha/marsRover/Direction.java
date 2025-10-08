@@ -7,36 +7,33 @@ public class Direction {
         this.point = point;
     }
 
-    void northAnticlockwise(){
-        this.point  = "W";
+    void rotateLeft(){
+        if(point.equals("N")){
+            this.point = "W";
+        }
+        else if(point.equals("E")){
+            this.point = "N";
+        }
+        else if(point.equals("W")){
+            this.point = "S";
+        }
+        else{
+            this.point = "E";
+        }
     }
-
-    void northClockwise(){
-        this.point  = "E";
-    }
-
-    void eastAnticlockwise(){
-        this.point  = "N";
-    }
-
-    void eastClockwise(){
-        this.point  = "S";
-    }
-
-    void westAnticlockwise(){
-        this.point  = "S";
-    }
-
-    void westClockwise(){
-        this.point  = "N";
-    }
-
-    void southAnticlockwise(){
-        this.point  = "E";
-    }
-
-    void southClockwise(){
-        this.point  = "W";
+    void rotateRight(){
+        if(point.equals("N")){
+            this.point = "E";
+        }
+        else if(point.equals("E")){
+            this.point = "S";
+        }
+        else if(point.equals("W")){
+            this.point = "N";
+        }
+        else{
+            this.point = "W";
+        }
     }
 
     public String getPoint() {

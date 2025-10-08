@@ -17,9 +17,8 @@ public class Rover {
         return direction;
     }
 
-    void moveCoordinate(){
+    void move(){
         if(direction.getPoint().equals("N")){
-          //  System.out.println(direction.getPoint());
             coordinates.incrementY();
         }
         else if(direction.getPoint().equals("S")){
@@ -33,41 +32,14 @@ public class Rover {
         }
     }
 
-    void moveNorth(char movement){
+    void rotate(char movement){
 
         if(movement== 'L'){
-           direction.northAnticlockwise();
+           direction.rotateLeft();
        }
        else{
-           direction.northClockwise();
+           direction.rotateRight();
        }
     }
 
-    void moveSouth(char movement){
-        if(movement== 'L'){
-            direction.southAnticlockwise();
-        }
-        else{
-            direction.southClockwise();
-        }
-
-    }
-
-    void moveEast(char movement){
-        if(movement== 'L'){
-            direction.eastAnticlockwise();
-        }
-        else{
-            direction.eastClockwise();
-        }
-    }
-
-    void moveWest(char movement){
-        if(movement== 'L'){
-            direction.westAnticlockwise();
-        }
-        else{
-            direction.westClockwise();
-        }
-    }
 }

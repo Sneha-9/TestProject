@@ -1,36 +1,36 @@
 package com.sneha.marsRover;
 
 public class Coordinate {
-    private int xCoordinate;
-    private int yCoordinate;
+    private int x;
+    private int y;
 
-    Coordinate(int xCoordinate, int yCoordinate){
-        this.xCoordinate = xCoordinate;
-        this.yCoordinate = yCoordinate;
+    Coordinate(int x, int y){
+        this.x = x;
+        this.y = y;
     }
 
     public int getXCoordinate() {
-        return xCoordinate;
+        return x;
     }
 
     public int getYCoordinate() {
-        return yCoordinate;
+        return y;
     }
 
     public  void incrementX(){
-        this.xCoordinate = xCoordinate+1;
+        this.x = x+1;
     }
 
     public  void decrementX(){
-        this.xCoordinate = xCoordinate-1;
+        this.x = x-1;
     }
 
     public  void incrementY(){
-        this.yCoordinate = yCoordinate+1;
+        this.y = y+1;
     }
 
     public  void decrementY(){
-        this.yCoordinate = yCoordinate-1;
+        this.y = y-1;
     }
 
 }
