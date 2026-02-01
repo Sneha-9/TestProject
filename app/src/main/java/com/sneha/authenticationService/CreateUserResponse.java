@@ -1,8 +1,9 @@
 package com.sneha.authenticationService;
 
 public class CreateUserResponse {
-    private boolean response;
-    public CreateUserResponse(boolean response){
+    private final boolean response;
+
+    public CreateUserResponse(boolean response) {
         this.response = response;
     }
 

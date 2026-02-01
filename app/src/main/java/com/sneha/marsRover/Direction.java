@@ -3,35 +3,30 @@ package com.sneha.marsRover;
 public class Direction {
     private String point;
 
-    Direction(String point){
+    Direction(String point) {
         this.point = point;
     }
 
-    void rotateLeft(){
-        if(point.equals("N")){
+    void rotateLeft() {
+        if (point.equals("N")) {
             this.point = "W";
-        }
-        else if(point.equals("E")){
+        } else if (point.equals("E")) {
             this.point = "N";
-        }
-        else if(point.equals("W")){
+        } else if (point.equals("W")) {
             this.point = "S";
-        }
-        else{
+        } else {
             this.point = "E";
         }
     }
-    void rotateRight(){
-        if(point.equals("N")){
+
+    void rotateRight() {
+        if (point.equals("N")) {
             this.point = "E";
-        }
-        else if(point.equals("E")){
+        } else if (point.equals("E")) {
             this.point = "S";
-        }
-        else if(point.equals("W")){
+        } else if (point.equals("W")) {
             this.point = "N";
-        }
-        else{
+        } else {
             this.point = "W";
         }
     }

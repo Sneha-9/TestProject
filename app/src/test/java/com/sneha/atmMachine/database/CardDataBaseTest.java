@@ -19,8 +19,8 @@ class CardDataBaseTest {
     @Test
     void shouldGetCard() {
         Card card = mock(Card.class);
-        when(card.getId()).thenReturn("123");
-        when(card.getAccountId()).thenReturn("123456");
+        when(card.id()).thenReturn("123");
+        when(card.accountId()).thenReturn("123456");
 
         CardDataBase cardDataBase = new CardDataBase();
         cardDataBase.addCard(card);
@@ -30,8 +30,8 @@ class CardDataBaseTest {
     @Test
     void shouldNotGetCard() {
         Card card = mock(Card.class);
-        when(card.getId()).thenReturn("123");
-        when(card.getAccountId()).thenReturn("123456");
+        when(card.id()).thenReturn("123");
+        when(card.accountId()).thenReturn("123456");
 
         CardDataBase cardDataBase = new CardDataBase();
 

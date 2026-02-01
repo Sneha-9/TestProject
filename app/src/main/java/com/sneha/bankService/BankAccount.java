@@ -1,14 +1,15 @@
-package com.sneha.atmMachine;
+package com.sneha.bankService;
+
+import com.sneha.atmMachine.IdGenerator;
 
 public class BankAccount {
     private final String accountId;
-    private float amount;
-    private final String govenmentId;
-
+    private final String governmentId;
     private final int maxValue = 10000;
     private final int minValue = 0;
+    private float amount;
 
-    public BankAccount(IdGenerator idGenerator, float amount, String govenmentId) {
+    public BankAccount(IdGenerator idGenerator, float amount, String governmentId) {
         if (amount < 0) {
             throw new IllegalArgumentException("Amount cannot be negative");
         }
@@ -16,7 +17,7 @@ public class BankAccount {
         accountId = idGenerator.generateId();
         this.amount = amount;
 
-        this.govenmentId = govenmentId;
+        this.governmentId = governmentId;
     }
 
     public float getAmount() {
@@ -36,7 +37,7 @@ public class BankAccount {
 
     public void withrawBalance(float amount) {
         if (amount > maxValue) {
-            throw new IllegalArgumentException("Maxmium withdrawal cannot exceed " + maxValue);
+            throw new IllegalArgumentException("Maximum withdrawal cannot exceed " + maxValue);
         }
 
         if (amount > this.amount) {
@@ -51,6 +52,6 @@ public class BankAccount {
     }
 
     public String getGovenmentId() {
-        return govenmentId;
+        return governmentId;
     }
 }

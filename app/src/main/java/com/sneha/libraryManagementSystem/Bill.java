@@ -7,8 +7,8 @@ public class Bill {
     private final String bookId;
     private final float amount;
     private final String bookName;
-    private boolean isPaid = false;
     private final long duration;
+    private boolean isPaid = false;
 
     public Bill(IdGenerator idGenerator, String bookId, float amount, String bookName, long duration) throws IllegalArgumentException {
         if (amount <= 0) {

@@ -1,8 +1,9 @@
 package com.sneha.authenticationService;
 
 public class TokenValidationResponse {
-    private boolean response;
-    public TokenValidationResponse(boolean response){
+    private final boolean response;
+
+    public TokenValidationResponse(boolean response) {
         this.response = response;
     }
 

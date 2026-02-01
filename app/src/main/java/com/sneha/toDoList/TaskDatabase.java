@@ -1,6 +1,5 @@
 package com.sneha.toDoList;
 
-import javax.swing.plaf.nimbus.State;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -8,7 +7,7 @@ import java.util.List;
 public class TaskDatabase {
     List<Task> tasks;
 
-    private Connection connection;
+    private final Connection connection;
 
     public TaskDatabase() {
         String jdbcURL = "jdbc:postgresql://localhost:5432/todolist";
@@ -49,7 +48,7 @@ public class TaskDatabase {
 
     void remove(Task task) {
         String id = task.getId();
-       String deleteStatement = String.format("Delete from task where id = '%s'", id);
+        String deleteStatement = String.format("Delete from task where id = '%s'", id);
         try {
             Statement statement = connection.createStatement();
             statement.execute(deleteStatement);
@@ -84,7 +83,7 @@ public class TaskDatabase {
         return null;
     }
 
-    Task update(String id, String title, long dueDate, String status){
+    Task update(String id, String title, long dueDate, String status) {
         StringBuilder updateStatementBuilder = new StringBuilder("Update task set ");
 
         boolean last = false;
@@ -100,14 +99,14 @@ public class TaskDatabase {
             last = true;
         }
 
-        if (dueDate != 0L ) {
+        if (dueDate != 0L) {
             if (last) updateStatementBuilder.append(" , ");
             updateStatementBuilder.append(String.format(" duedate = '%d' ", dueDate));
         }
 
         updateStatementBuilder.append(String.format(" where id = '%s'", id));
 
-        System.out.println(updateStatementBuilder.toString());
+        System.out.println(updateStatementBuilder);
 
         try {
             Statement statement = connection.createStatement();

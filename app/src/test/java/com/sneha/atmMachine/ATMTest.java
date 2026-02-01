@@ -2,6 +2,8 @@ package com.sneha.atmMachine;
 
 
 import com.sneha.atmMachine.database.CardDataBase;
+import com.sneha.bankService.Bank;
+import com.sneha.bankService.BankAccount;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -23,8 +25,8 @@ class ATMTest {
         Card card = mock(Card.class);
 
 
-        when(card.getId()).thenReturn("123");
-        when(card.getAccountId()).thenReturn("123456");
+        when(card.id()).thenReturn("123");
+        when(card.accountId()).thenReturn("123456");
 
 
         Bank bank = mock(Bank.class);
@@ -50,8 +52,8 @@ class ATMTest {
         Card card = mock(Card.class);
 
         Bank bank = mock(Bank.class);
-        when(card.getId()).thenReturn("123");
-        when(card.getAccountId()).thenReturn("123456");
+        when(card.id()).thenReturn("123");
+        when(card.accountId()).thenReturn("123456");
 
 
         when(bank.validateAccount(card)).thenReturn(true);

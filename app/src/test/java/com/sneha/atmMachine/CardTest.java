@@ -19,7 +19,7 @@ class CardTest {
     @Test
     void shouldGiveCardId() {
         when(idGenerator.generateId()).thenReturn("random");
-        assertEquals("random", new Card(idGenerator, "123").getId());
+        assertEquals("random", new Card(idGenerator, "123").id());
     }
 
     @Test

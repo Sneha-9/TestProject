@@ -18,13 +18,13 @@ public class ToDoList {
     public CreateTaskResponse createTask(CreateTaskRequest createTaskRequest) {
         Task task = mapper.mapCreateTaskRequestToTask(createTaskRequest);
         taskDatabase.addTask(task);
-        System.out.println(task.toString());
+        System.out.println(task);
         return new CreateTaskResponse(task.getId());
     }
 
     public UpdateTaskResponse updateTask(UpdateTaskRequest updateTaskRequest) {
 
-       Task task = taskDatabase.update(updateTaskRequest.getId(), updateTaskRequest.getTitle(),updateTaskRequest.getDueDate(),updateTaskRequest.getStatus());
+        Task task = taskDatabase.update(updateTaskRequest.getId(), updateTaskRequest.getTitle(), updateTaskRequest.getDueDate(), updateTaskRequest.getStatus());
 
 //        task.setTitle(updateTaskRequest.getTitle() == null ? task.getTitle() : updateTaskRequest.getTitle());
 //        task.setDueDate(updateTaskRequest.getDueDate() == 0 ? task.getDueDate() : updateTaskRequest.getDueDate());
@@ -36,14 +36,11 @@ public class ToDoList {
 
     }
 
-    public boolean deleteTask(String id){
+    public boolean deleteTask(String id) {
         Task task = taskDatabase.getTaskById(id);
 
         taskDatabase.remove(task);
-        if(taskDatabase.getTaskById(id) == null){
-            return true;
-        }
-        return false;
+        return taskDatabase.getTaskById(id) == null;
 
     }
 
@@ -59,7 +56,7 @@ public class ToDoList {
     }
 
     public List<GetTaskResponse> getTasks(GetTasksRequest getTasksRequest) {
-        List<Task> taskList = taskDatabase.getTaskByStatus(getTasksRequest.getStatus());
+        List<Task> taskList = taskDatabase.getTaskByStatus(getTasksRequest.status());
 
         return mapper.mapGetTasksResponseToTask(taskList);
     }

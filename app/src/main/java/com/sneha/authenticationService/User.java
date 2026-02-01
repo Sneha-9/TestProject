@@ -1,19 +1,20 @@
 package com.sneha.authenticationService;
 
 public class User {
-    private String name;
-    private String password;
-   // private String email;
-    private long createdAt;
-    private long updatedAt;
-    private String  id;
-    User(IdGenerator idGenerator, TimeUtil timeUtil,String name, String password){
+    private final String name;
+    private final String password;
+    // private String email;
+    private final long createdAt;
+    private final long updatedAt;
+    private final String id;
+
+    User(IdGenerator idGenerator, TimeUtil timeUtil, String name, String password) {
         this.name = name;
         this.password = password;
         //this.email = email;
-        this.createdAt= timeUtil.getCurrentTime();
-        this.updatedAt= timeUtil.getCurrentTime();
-        this.id=idGenerator.generate();
+        this.createdAt = timeUtil.getCurrentTime();
+        this.updatedAt = timeUtil.getCurrentTime();
+        this.id = idGenerator.generate();
     }
 
     public String getName() {
@@ -23,7 +24,6 @@ public class User {
     public String getPassword() {
         return password;
     }
-
 
 
     public String getId() {

@@ -1,5 +1,6 @@
 package com.sneha.atmMachine;
 
+import com.sneha.bankService.BankAccount;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -19,7 +20,7 @@ class BankAccountTest {
     @Test
     void throwExceptionWhenAmountIsLessThanZero() {
         Card mockcard = mock(Card.class);
-        when(mockcard.getId()).thenReturn("123");
+        when(mockcard.id()).thenReturn("123");
         when(idGenerator.generateId()).thenReturn("random");
 
         Assertions.assertThrows(IllegalArgumentException.class, () -> new BankAccount(idGenerator, -10, person.getGovernmentId()));
@@ -28,7 +29,7 @@ class BankAccountTest {
     @Test
     void throwExceptionWhenAmountIsGreaterThanTenThousand() {
         Card mockcard = mock(Card.class);
-        when(mockcard.getId()).thenReturn("123");
+        when(mockcard.id()).thenReturn("123");
         when(idGenerator.generateId()).thenReturn("random");
 
         Assertions.assertThrows(IllegalArgumentException.class, () -> new BankAccount(idGenerator, 10, person.getGovernmentId()).addBalance(100000));
@@ -37,7 +38,7 @@ class BankAccountTest {
     @Test
     void throwExceptionWhenWithdrawalMoneyIsNegative() {
         Card mockcard = mock(Card.class);
-        when(mockcard.getId()).thenReturn("123");
+        when(mockcard.id()).thenReturn("123");
         when(idGenerator.generateId()).thenReturn("random");
         Assertions.assertThrows(IllegalArgumentException.class, () -> new BankAccount(idGenerator, 10, person.getGovernmentId()).withrawBalance(-10));
     }
@@ -45,7 +46,7 @@ class BankAccountTest {
     @Test
     void throwExceptionWhenWithdrawalMoneyIsGreaterThanTenThousand() {
         Card mockcard = mock(Card.class);
-        when(mockcard.getId()).thenReturn("123");
+        when(mockcard.id()).thenReturn("123");
         when(idGenerator.generateId()).thenReturn("random");
         Assertions.assertThrows(IllegalArgumentException.class, () -> new BankAccount(idGenerator, 10, person.getGovernmentId()).withrawBalance(100000));
     }
@@ -53,7 +54,7 @@ class BankAccountTest {
     @Test
     void throwExceptionWhenWithdrawalMoneyIsEqualToZero() {
         Card mockcard = mock(Card.class);
-        when(mockcard.getId()).thenReturn("123");
+        when(mockcard.id()).thenReturn("123");
         when(idGenerator.generateId()).thenReturn("random");
         Assertions.assertThrows(IllegalArgumentException.class, () -> new BankAccount(idGenerator, 10, person.getGovernmentId()).withrawBalance(0));
     }
@@ -61,7 +62,7 @@ class BankAccountTest {
     @Test
     void throwExceptionWhenWithdrawalMoneyIsGreaterThanBalance() {
         Card mockcard = mock(Card.class);
-        when(mockcard.getId()).thenReturn("123");
+        when(mockcard.id()).thenReturn("123");
         when(idGenerator.generateId()).thenReturn("random");
         Assertions.assertThrows(IllegalArgumentException.class, () -> new BankAccount(idGenerator, 10, person.getGovernmentId()).withrawBalance(100000));
     }

@@ -4,10 +4,9 @@ package com.sneha.libraryManagementSystem;
 import com.sneha.libraryManagementSystem.database.EntryDatabase;
 
 public class BillGenerationSystem {
+    private static final int RATE = 10;
     private final TimeUtil timeUtil;
     private final IdGenerator idGenerator;
-
-    private static final int RATE = 10;
 
     public BillGenerationSystem(IdGenerator idGenerator, TimeUtil timeUtil) {
         this.timeUtil = timeUtil;

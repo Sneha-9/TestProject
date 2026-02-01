@@ -1,6 +1,8 @@
-package com.sneha.atmMachine;
+package com.sneha.bankService;
 
-import com.sneha.atmMachine.database.AccountDataBase;
+import com.sneha.atmMachine.AccountKit;
+import com.sneha.atmMachine.Card;
+import com.sneha.atmMachine.IdGenerator;
 import com.sneha.atmMachine.database.CardDataBase;
 
 public class Bank {

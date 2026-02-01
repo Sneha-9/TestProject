@@ -15,6 +15,14 @@ public class CreateTaskRequest {
         this.dueDate = dueDate;
     }
 
+    public String getTitle() {
+        return title;
+    }
+
+    public long getDueDate() {
+        return dueDate;
+    }
+
     public static class Builder {
         private String title;
         private long dueDate;
@@ -32,14 +40,6 @@ public class CreateTaskRequest {
         public CreateTaskRequest build() {
             return new CreateTaskRequest(this.title, this.dueDate);
         }
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public long getDueDate() {
-        return dueDate;
     }
 
 

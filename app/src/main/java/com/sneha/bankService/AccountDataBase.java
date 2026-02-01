@@ -1,6 +1,4 @@
-package com.sneha.atmMachine.database;
-
-import com.sneha.atmMachine.BankAccount;
+package com.sneha.bankService;
 
 import java.util.ArrayList;
 import java.util.List;

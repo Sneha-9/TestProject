@@ -3,12 +3,10 @@ package com.sneha.parkingLot;
 import java.util.Objects;
 
 public class Lot {
-    private Vehicle vehicle;
     private final IdGenerator idGenerator;
-
     private final String supportedVehicleType;
-
     private final String regex = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$";
+    private Vehicle vehicle;
 
     Lot(IdGenerator idGenerator, String supportedVehicleType) throws IllegalArgumentException {
         if (idGenerator == null) {

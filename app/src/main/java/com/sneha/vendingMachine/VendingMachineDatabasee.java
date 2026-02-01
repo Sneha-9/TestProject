@@ -3,27 +3,27 @@ package com.sneha.vendingMachine;
 import java.util.List;
 
 public class VendingMachineDatabasee {
-    private List<Record> records;
+    private final List<Record> records;
 
-    VendingMachineDatabasee(List<Record> records){
-        this.records =records;
+    VendingMachineDatabasee(List<Record> records) {
+        this.records = records;
     }
 
 
-    Record getRecord(int productNumber){
-        for(Record record: records){
-            if(record.getProductNumber() == productNumber){
-                return  record;
+    Record getRecord(int productNumber) {
+        for (Record record : records) {
+            if (record.getProductNumber() == productNumber) {
+                return record;
             }
         }
 
-         return null;
+        return null;
     }
 
-    void updateRecord(int productNumber){
-        for(Record record: records){
-            if(record.getProductNumber() == productNumber){
-               record.decrementQuantity();
+    void updateRecord(int productNumber) {
+        for (Record record : records) {
+            if (record.getProductNumber() == productNumber) {
+                record.decrementQuantity();
             }
         }
     }

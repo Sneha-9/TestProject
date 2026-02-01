@@ -1,7 +1,9 @@
 package com.sneha.atmMachine;
 
-import com.sneha.atmMachine.database.AccountDataBase;
+import com.sneha.bankService.AccountDataBase;
 import com.sneha.atmMachine.database.CardDataBase;
+import com.sneha.bankService.Bank;
+import com.sneha.bankService.BankAccount;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -30,8 +32,8 @@ class BankTest {
         AccountKit accountKit = bank.createAccount("123");
 
         Assertions.assertNotNull(accountKit);
-        assertEquals("accountId", accountKit.getAccountId());
-        assertEquals("cardId", accountKit.getCard().getId());
+        assertEquals("accountId", accountKit.accountId());
+        assertEquals("cardId", accountKit.card().id());
     }
 
 

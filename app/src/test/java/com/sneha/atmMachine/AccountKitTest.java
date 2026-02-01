@@ -20,7 +20,7 @@ class AccountKitTest {
     void shouldGiveAccountId() {
         Card card = mock(Card.class);
 
-        assertEquals("123", new AccountKit(card, "123").getAccountId());
+        assertEquals("123", new AccountKit(card, "123").accountId());
     }
 
     @Test

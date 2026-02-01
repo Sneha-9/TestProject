@@ -1,6 +1,8 @@
 package com.sneha.atmMachine;
 
 import com.sneha.atmMachine.database.CardDataBase;
+import com.sneha.bankService.Bank;
+import com.sneha.bankService.BankAccount;
 
 public class ATM {
     private final Bank bank;
@@ -42,7 +44,7 @@ public class ATM {
             throw new IllegalArgumentException("Card is not valid");
         }
 
-        Card cardEntry = cardDataBase.validateCard(card);
+        Card cardEntry = cardDataBase.validateCard(card); //get card
 
         BankAccount accountDetails = bank.getAccountDetails(cardEntry.getAccountId());
 

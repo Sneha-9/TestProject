@@ -1,11 +1,11 @@
 package com.sneha.marsRover;
 
 public class Rover {
-    private Coordinate coordinates;
-    private Direction direction;
+    private final Coordinate coordinates;
+    private final Direction direction;
 
-    Rover(Coordinate coordinates, Direction direction){
-        this.coordinates =coordinates;
+    Rover(Coordinate coordinates, Direction direction) {
+        this.coordinates = coordinates;
         this.direction = direction;
     }
 
@@ -17,29 +17,25 @@ public class Rover {
         return direction;
     }
 
-    void move(){
-        if(direction.getPoint().equals("N")){
+    void move() {
+        if (direction.getPoint().equals("N")) {
             coordinates.incrementY();
-        }
-        else if(direction.getPoint().equals("S")){
+        } else if (direction.getPoint().equals("S")) {
             coordinates.decrementY();
-        }
-        else if(direction.getPoint().equals("E")){
+        } else if (direction.getPoint().equals("E")) {
             coordinates.incrementX();
-        }
-        else{
+        } else {
             coordinates.decrementX();
         }
     }
 
-    void rotate(char movement){
+    void rotate(char movement) {
 
-        if(movement== 'L'){
-           direction.rotateLeft();
-       }
-       else{
-           direction.rotateRight();
-       }
+        if (movement == 'L') {
+            direction.rotateLeft();
+        } else {
+            direction.rotateRight();
+        }
     }
 
 }

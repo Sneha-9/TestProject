@@ -14,12 +14,12 @@ public class Pair<K, V> {
         return first;
     }
 
-    public V getSecond() {
-        return second;
-    }
-
     public void setFirst(K First) {
         this.first = First;
+    }
+
+    public V getSecond() {
+        return second;
     }
 
     public void setSecond(V Second) {

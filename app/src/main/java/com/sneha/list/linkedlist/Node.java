@@ -15,20 +15,20 @@ public class Node<T> {
         this.data = data;
     }
 
-    public void setPrev(Node<T> prev) {
-        this.prev = prev;
-    }
-
     public Node<T> getPrev() {
         return this.prev;
     }
 
-    public void setNext(Node<T> next) {
-        this.next = next;
+    public void setPrev(Node<T> prev) {
+        this.prev = prev;
     }
 
     public Node<T> getNext() {
         return this.next;
+    }
+
+    public void setNext(Node<T> next) {
+        this.next = next;
     }
 
     public T getData() {

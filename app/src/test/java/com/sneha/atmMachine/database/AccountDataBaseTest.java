@@ -1,6 +1,7 @@
 package com.sneha.atmMachine.database;
 
-import com.sneha.atmMachine.BankAccount;
+import com.sneha.bankService.AccountDataBase;
+import com.sneha.bankService.BankAccount;
 import com.sneha.atmMachine.IdGenerator;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;

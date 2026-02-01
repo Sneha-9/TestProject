@@ -1,19 +1,15 @@
 package com.sneha.marsRover;
 
 public class Plateau {
-    private int XCoordinate;
-    private int YCoordinate;
+    private final int XCoordinate;
+    private final int YCoordinate;
 
-    Plateau(int XCoordinate, int YCoordinate){
+    Plateau(int XCoordinate, int YCoordinate) {
         this.XCoordinate = XCoordinate;
-        this.YCoordinate=YCoordinate;
+        this.YCoordinate = YCoordinate;
     }
 
-    boolean validateCoordinate(Coordinate coordinate){
-        if(coordinate.getXCoordinate() > XCoordinate || coordinate.getYCoordinate() > YCoordinate){
-            return false;
-        }
-
-        return true;
+    boolean validateCoordinate(Coordinate coordinate) {
+        return coordinate.getXCoordinate() <= XCoordinate && coordinate.getYCoordinate() <= YCoordinate;
     }
 }

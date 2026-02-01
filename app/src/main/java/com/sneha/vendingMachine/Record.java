@@ -2,14 +2,14 @@ package com.sneha.vendingMachine;
 
 public class Record {
     private int quantity;
-    private int productNumber;
-    private String productId;
+    private final int productNumber;
+    private final String productId;
 
-    Record(int quantity, int productNumber, String productId){
+    Record(int quantity, int productNumber, String productId) {
         //q
-        this.quantity=quantity;
-        this.productId=productId;
-        this.productNumber=productNumber;
+        this.quantity = quantity;
+        this.productId = productId;
+        this.productNumber = productNumber;
     }
 
     public int getProductNumber() {
@@ -24,7 +24,7 @@ public class Record {
         return quantity;
     }
 
-    public void decrementQuantity(){
-        this.quantity =quantity -1;
+    public void decrementQuantity() {
+        this.quantity = quantity - 1;
     }
 }

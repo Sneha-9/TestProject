@@ -1,12 +1,12 @@
 package com.sneha.toDoList;
 
 public class Task {
-    private String title;
-    private String status;
     private final long createdAt;
     private final long updatedAt;
-    private long dueDate;
     private final String id;
+    private String title;
+    private String status;
+    private long dueDate;
 
     Task(IdGenerator idGenerator, TimeUtil timeUtil, String title, String status, long dueDate) {
         this.id = idGenerator.generate();
@@ -42,24 +42,24 @@ public class Task {
         return status;
     }
 
-    public String getTitle() {
-        return title;
+    public void setStatus(String status) {
+        this.status = status;
     }
 
-    public long getDueDate() {
-        return dueDate;
+    public String getTitle() {
+        return title;
     }
 
     public void setTitle(String title) {
         this.title = title;
     }
 
-    public void setDueDate(long dueDate) {
-        this.dueDate = dueDate;
+    public long getDueDate() {
+        return dueDate;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setDueDate(long dueDate) {
+        this.dueDate = dueDate;
     }
 
     @Override
