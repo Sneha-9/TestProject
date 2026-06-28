@@ -13,7 +13,8 @@ interface Rule {
     boolean isWinner(int finalPoint);
 }
 
-class FourPlayerRule implements RoundWinnerRule {
+class
+FourPlayerRule implements RoundWinnerRule {
 
     Map<Player, Rule> playerRuleMap = new HashMap<>();
 
