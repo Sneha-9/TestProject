@@ -21,10 +21,11 @@ public class Team {
     }
 
     int getTotalPoints(){
-      int totalPoint =0;
-        for(Player player: players){
-            totalPoint = totalPoint + player.getPoint();
-        }
+      int totalPoint = players.stream().mapToInt(Player::getPoint).sum();
+
+//        for(Player player: players){
+//            totalPoint = totalPoint + player.getPoint();
+//        }
         return totalPoint;
     }
 
